@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    aplicatie-a:
+        build: './aplicatia-a/'
+        container_name: aplicatia-a
+        ports:
+            - '8080:4000'
+        volumes:
+            - './aplicatia-a/index.js:/usr/src/app/index.js'
+        networks:
+            - workshop
+    aplicatie-b:
+        build: './aplicatie-b/'
+        container_name: aplicatia-build
+        networks:
+            - workshop
+
+networks:
+    workshop:
